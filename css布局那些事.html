@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css布局那些事</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .title {
+            background-color: #ccc;
+            color: #fff;
+            margin-top: 50px;
+        }
+        .wrappe1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        .wrapper1 .margin-box1 {
+            width: 200px;
+            height: 40px;
+            background-color: pink;
+            margin-top: 4px;
+        }
+        .wrapper1 .margin-box-bottom {
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            margin-top: 0px;
+        }
+
+        .wrapper-row1 {
+            height: 120px;
+        }
+        .wrapper-row1 .row1-left,.row1-right {
+            height: 80px;
+        }
+        .container1::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .row1-left {
+            background-color: pink;
+            float: left;
+            width: 100%;
+            /* margin-left: -110px; */
+
+            margin-right: -110px;
+        }
+        .row1-left .text {
+            /* margin-left: 110px; */
+
+            margin-right: 110px;
+        }
+        .row1-right {
+            background-color: blue;
+            width: 100px;
+            float: right;
+        }
+        .wrapper-row1 .footer {
+            height: 40px;
+            background-color: #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper1">
+        <div class="title">负margin:被覆盖的元素文本内容不会被覆盖(块元素文本不会被覆盖(背景会被覆盖)，inline，inline-block，背景色也不会被覆盖，图片也不会别覆盖)</div>
+        <img src="./img/cake.jpg" alt="" width="30px">
+        <div class="margin-box1">你好呀11，fajgagjajgajg</div>
+        <div>
+            <div class="margin-box1" style="display: inline;background-color: blue;">你好呀22inline，fajgagjajgajg</div>
+        </div>
+        <div style="padding: 20px 0;background-color: pink;">
+            <div class="margin-box1" style="display:inline-block;background-color: green;">你好呀inline-block，fajgagjajgajg</div>
+        </div>
+        <div class="margin-box-bottom"></div>
+    </div>
+
+
+    <div class="wrapper2">
+        <div class="title">页面布局：两列，三列布局</div>
+        <div class="wrapper-row1">
+            <div class="container1">
+                <div class="row1-left"><span class="text">你好呀你好呀fjajlajgjlajgaglajgljafjggghhsh</span></div>
+                <div class="row1-right"></div>
+            </div>
+            <div class="footer">左侧自适应，右侧固定(两个浮动+负margin)</div>
+        </div>
+    </div>
+
+    <div class="wrapper3">
+        <div class="title">页面布局：两列，三列布局</div>
+        <div class="wrapper-row1">
+            <div class="container1">
+                <div class="row1-left"><span class="text">你好呀你好呀fjajlajgjlajgaglajgljafjggghhsh</span></div>
+                <div class="row1-right"></div>
+            </div>
+            <div class="footer">左侧自适应，右侧固定</div>
+        </div>
+    </div>
+
+    <div class="wrapper4" style="border: 1px solid red;">
+        <div class="left" style="width: 100px;height: 100px;background-color: blue;float: left;"></div>
+        <div class="right" style="overflow: hidder;background-color: pink;"><div>haifahighag</div></div>
+    </div>
+    <div class="wrapper5" style="display:table;width:100%;border: 1px solid red;">
+        <div>http://jo2.org/css-auto-adapt-width/</div>
+        <div>https://blog.csdn.net/caicai1171523597/article/details/86642535</div>
+        <div class="left" style="display: table-cell;height: 100px;background-color: blue;"></div>
+        <div class="right" style="display: table-cell;width: 100px;background-color: pink;"><div>haifahighag</div></div>
+    </div>
+</body>
+</html>
